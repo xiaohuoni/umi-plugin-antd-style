@@ -1,0 +1,35 @@
+{
+  "name": "umi-plugin-antd-style",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "start": "cd demo && umi dev",
+    "build": "father build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaohuoni/umi-plugin-antd-style.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiaohuoni/umi-plugin-antd-style/issues"
+  },
+  "homepage": "https://github.com/xiaohuoni/umi-plugin-antd-style#readme",
+  "dependencies": {
+    "antd-style": "^3.1.1",
+    "@umijs/utils": "^4.0.68"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "father": "^4.1.9",
+    "umi": "^4.0.68"
+  }
+}
