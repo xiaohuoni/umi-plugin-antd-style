@@ -1,4 +1,4 @@
-import { RuntimeAntdConfig } from "umi";
+import { RuntimeAntdConfig, RuntimeAntdStyleConfig } from "umi";
 
 export const antd: RuntimeAntdConfig = (memo) => {
   memo.appConfig ??= {};
@@ -8,9 +8,7 @@ export const antd: RuntimeAntdConfig = (memo) => {
   return memo;
 };
 
-export const antdStyle = (memo) => {
-  return memo
-  return {
-    // appearance: "dark",
-  };
+export const antdStyle: RuntimeAntdStyleConfig = (memo) => {
+  memo.appearance = "dark";
+  return memo;
 };
