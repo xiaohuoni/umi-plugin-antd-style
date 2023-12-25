@@ -27,12 +27,14 @@
   },
   "homepage": "https://github.com/xiaohuoni/umi-plugin-antd-style#readme",
   "dependencies": {
-    "antd-style": "^3.1.1",
-    "@umijs/utils": "^4.0.68"
+    "@umijs/utils": "^4.0.90",
+    "antd-style": "^3.6.1",
+    "babel-plugin-antd-style": "^1.0.4",
+    "update": "^0.7.4"
   },
   "devDependencies": {
-    "@types/node": "^18.13.0",
-    "father": "^4.1.9",
-    "umi": "^4.0.68"
+    "@types/node": "^20.10.5",
+    "father": "^4.3.8",
+    "umi": "^4.0.90"
   }
 }

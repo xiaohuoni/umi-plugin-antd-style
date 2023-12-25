@@ -12,6 +12,7 @@ export default defineConfig({
   },
   antdStyle: {
     appearance: "dark",
+    enableBabelImproveDX: true,
   },
   antd: {
     // valid for antd5.0 only
