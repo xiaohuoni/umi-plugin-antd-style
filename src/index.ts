@@ -4,7 +4,6 @@ import { withTmpPath } from "./withTmpPath";
 import { resolveProjectDep } from "./resolveProjectDep";
 import { join, dirname } from "path";
 import { TEMPLATES_DIR } from "./constants";
-const DIR_NAME = "plugin-antd-style";
 
 export default (api: IApi) => {
   let pkgPath: string;
@@ -19,7 +18,13 @@ export default (api: IApi) => {
     key: "antdStyle",
     config: {
       schema({ zod }) {
-        return zod.object({});
+        return zod.object({
+          enableBabelImproveDX: zod
+            .boolean()
+            .default(true)
+            .optional()
+            .describe('是否启用 babel 插件优化开发体验(仅开发环境有效)'),
+        }).deepPartial();
       },
     },
     enableBy: api.EnableBy.config,
@@ -64,6 +69,26 @@ export default (api: IApi) => {
       `,
     });
   });
+
+  // https://ant-design.github.io/antd-style/guide/babel-plugin
+  api.addExtraBabelPlugins(() => {
+    const enableBabelImproveDX = api.config.antdStyle?.enableBabelImproveDX ?? true;
+    if (
+      api.env === 'development' &&
+      enableBabelImproveDX === true &&
+      !api.appData.vite
+    ) {
+      return [
+        [
+          require.resolve('babel-plugin-antd-style'),
+          {/** 未来也许会有可配置项 🤔 */ },
+        ],
+      ];
+    }
+
+    return [];
+  });
+
   api.addRuntimePlugin(() => {
     return [withTmpPath({ api, path: "runtime.tsx" })];
   });

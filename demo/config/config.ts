@@ -4,7 +4,7 @@ export default defineConfig({
   plugins: [
     "@umijs/plugins/dist/antd",
     "@umijs/plugins/dist/locale",
-    require.resolve("../../src/index"),
+    "umi-plugin-antd-style"
   ],
   locale: {
     title: true,
@@ -12,6 +12,7 @@ export default defineConfig({
   },
   antdStyle: {
     appearance: "dark",
+    enableBabelImproveDX: true,
   },
   antd: {
     // valid for antd5.0 only
