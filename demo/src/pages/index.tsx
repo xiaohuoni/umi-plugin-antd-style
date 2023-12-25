@@ -9,11 +9,19 @@ import {
 } from "antd";
 import React, { useState } from "react";
 import { getLocale, setLocale, useIntl, useThemeConfig } from "umi";
-import { useTheme } from "antd-style";
+import { useTheme, createStyles } from "antd-style";
 const themeConfig = {
   token: { colorPrimary: "#000000" },
   algorithm: theme.compactAlgorithm,
 };
+
+const useStyles = createStyles(({ css, token }) => ({
+  version: css`
+    background-color: ${token.colorBgContainer};
+    font-size:3rem;
+    color:${token.colorPrimary};
+  `
+}));
 
 export default function Page() {
   const [isZh, setIsZh] = useState(true);
@@ -39,9 +47,11 @@ export default function Page() {
     message.info("Hai");
   };
 
+
+  const { styles } = useStyles();
   return (
     <Layout>
-      <h1>with antd@{version}</h1>
+      <h1 className={styles.version} >with antd@{version}</h1>
       <Space>
         <Button onClick={sayHai}>Say Hai</Button>
         <Button type="primary" onClick={showModal}>
