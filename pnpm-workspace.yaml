@@ -1,0 +1,3 @@
+packages:
+  - '.' # root package
+  - 'demo'

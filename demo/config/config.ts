@@ -4,7 +4,7 @@ export default defineConfig({
   plugins: [
     "@umijs/plugins/dist/antd",
     "@umijs/plugins/dist/locale",
-    require.resolve("../../src/index"),
+    "umi-plugin-antd-style"
   ],
   locale: {
     title: true,

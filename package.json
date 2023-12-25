@@ -9,8 +9,11 @@
     "templates"
   ],
   "scripts": {
-    "start": "cd demo && umi dev",
-    "build": "father build"
+    "start": "pnpm --filter demo start",
+    "dev": "father dev",
+    "build": "father build",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
